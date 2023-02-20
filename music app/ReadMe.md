@@ -1,6 +1,6 @@
 # Music App:
 - Task students with creating a React website that showcases their favourite artists songs/albums.
-- Requirements are:
+### Requirements are:
 - Setup your first React App using npm and vite.
 - Install the required libraries
 - Using JSX, make your website a portfolio of their work.
@@ -16,4 +16,5 @@
 - You may create additional components to acheive this as you see fit
 - Add a controlled form
 - Create a controlled form into which users can provide data
-- On submission, do something with this data
+
+ On submission, do something with this data
