@@ -1,29 +1,34 @@
-import random
-
 class Characters: 
-    def __init__(self, name, attack, defence, special_attack, health, energy):
+    def __init__(self, name, attack, defense, special, health, energy):
         self.name = name
         self.attack = attack
-        self.defence = defence
-        self.special_attack = special_attack
+        self.defense = defense
+        self.special = special
         self.health = health
         self.energy = energy
 
-    def attack(self):
-        return self.attack
+    def attack(self, other):
+        print(f"{self.name} attacks {other.name}")
+        damage = self.attack - other.defense 
+        if damage < 0:
+            damage = 0
+        other.health -= damage
+        self.energy -= 1
+        print(f"{self.name} used 1 energy point")
+        print(f"{other.name} loses {damage} health points")
 
-    def defend(self):
-        return self.defence
 
-    def special_attack(self):
-        if self.energy >= special_attack:
-            self.energy -= self.special_attack
-            return self.attack * 2
-        else:
-            return 0
+    def defense(self):
+        print(f"{self.name} defends")
+        self.energy += 1
+        print(f"{self.name} gains 1 energy point")
 
-    def taken_damage(self, damage):
-        self.health -= damage
-    
-    def is_alive(self):
-        return self.health > 0
+    def special(self, other):
+            print(f"{self.name} does a special attack on {other.name}")
+            damage = self.special - other.defense
+            if damage < 0:
+                damage = 0
+            other.health -= damage
+            self.energy -= 2
+            print(f"{self.name} loses 2 energy points")
+            print(f"{other.name} loses {damage} health points")
